@@ -1,22 +1,11 @@
+//SOLVED
+//7 ms runtime, beats 95.94%
+//11.2 MB memory, beats 15.24% due to using a map. brute force solution gives good memory but worse runtime
+
 #include <iostream>
 #include <vector>
 #include <map>
-/*
-std::vector<int> twoSum(std::vector<int>& nums, int target){
-    std::vector<int> sumVector;
-    for(int i = 0; i < nums.size(); i++){
-        for(int j = 0; j < nums.size(); j++){
-            if(i == j) continue;
-            if(nums.at(i) + nums.at(j) == target){
-                sumVector.push_back(i);
-                sumVector.push_back(j);
-                return sumVector;
-            }
-        }
-    }
-    return sumVector;
-}
-*/
+
 
 std::vector<int> twoSum(std::vector<int>& nums, int target){
     std::map<int, int> mp;
