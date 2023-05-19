@@ -38,11 +38,11 @@ ListNode* addTwoNumbers(ListNode *l1, ListNode *l2){
             l1copy = l1copy->next;
             l2copy = l2copy->next;
         }else{
+            if(carry == 1) l1->next = new ListNode(1);
             end = true;
         }
     }
     while(!end);
-    if(carry = 1) l1->next = new ListNode(1);
     return l1;
 }
 
