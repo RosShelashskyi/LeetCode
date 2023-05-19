@@ -12,6 +12,7 @@ ListNode* addTwoNumbers(ListNode *l1, ListNode *l2){
     ListNode* l1copy = l1;
     ListNode* l2copy = l2;
     int carry = 0;
+    
     do{
        if(l1copy->val + l2copy->val + carry >= 10){
             l1copy->val += l2copy->val + carry - 10;
@@ -28,8 +29,14 @@ ListNode* addTwoNumbers(ListNode *l1, ListNode *l2){
         if(l1copy->next != NULL && l2copy->next != NULL){
             l1copy = l1copy->next;
             l2copy = l2copy->next;
-        }else{
-            end = true;
+        }else if(l1copy->next != NULL && l2copy->next == NULL){
+            l1copy = l1copy->next;
+            l2copy->next = new ListNode(0);
+            l2copy = l2copy->next;
+        }else if(l1copy->next == NULL && l2copy->next != NULL){
+            l1copy->next = new ListNode(0);
+            l1copy = l1copy->next;
+            l2copy = l2copy->next;
         }
     }
     while(!end);
