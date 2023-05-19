@@ -37,6 +37,8 @@ ListNode* addTwoNumbers(ListNode *l1, ListNode *l2){
             l1copy->next = new ListNode(0);
             l1copy = l1copy->next;
             l2copy = l2copy->next;
+        }else{
+            end = true;
         }
     }
     while(!end);
