@@ -42,6 +42,7 @@ ListNode* addTwoNumbers(ListNode *l1, ListNode *l2){
         }
     }
     while(!end);
+    if(carry = 1) l1->next = new ListNode(1);
     return l1;
 }
 
