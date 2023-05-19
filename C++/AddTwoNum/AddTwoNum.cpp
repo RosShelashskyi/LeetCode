@@ -1,3 +1,7 @@
+//SOLVED
+//35 ms runtime, beats 74.67%
+//70.8 MB memory, beats 99.56% (hell yeah)
+
 #include <iostream>
 struct ListNode{
     int val;
