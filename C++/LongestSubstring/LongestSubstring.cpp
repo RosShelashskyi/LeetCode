@@ -10,7 +10,7 @@ int lengthOfLongestSubstring(string s){
     vector<char> sublen;
     for(int i = 0; i < s.length(); i++){
         map<char, char> mp;
-        for(int j = 0; j < s.length(); j++){
+        for(int j = i; j < s.length(); j++){
             if(mp.count(s.at(j))){
                 sublen.push_back(j);
                 break;
