@@ -1,6 +1,13 @@
 {
     "files.associations": {
         "xstring": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "atomic": "cpp",
+        "ios": "cpp",
+        "system_error": "cpp",
+        "vector": "cpp",
+        "xiosbase": "cpp",
+        "xtree": "cpp",
+        "iostream": "cpp"
     }
 }
