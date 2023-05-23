@@ -13,7 +13,7 @@ double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2){
         result = nums1.at(nums1.size() / 2) + nums1.at(nums1.size() / 2 - 1);
         result /= 2;
     }else{
-        result = nums1.at(nums1.size() / 2 + 1);
+        result = nums1.at(nums1.size() / 2);
     }
     return result;
 }
