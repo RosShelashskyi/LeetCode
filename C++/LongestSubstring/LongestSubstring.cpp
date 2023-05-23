@@ -8,7 +8,6 @@ using namespace std;
 //return the length of longest substring without repeating characters
 int lengthOfLongestSubstring(string s){
     if(s.length() == 0) return 0;
-    if(s.length() == 1) return 1;
     vector<int> sublen;
     map<char, char> mp;
     for(int i = 0; i < s.length(); i++){
@@ -19,6 +18,7 @@ int lengthOfLongestSubstring(string s){
                 break;
             }
             mp.insert(pair<char, char>(s.at(j), s.at(j)));
+            if(j == s.length() - 1) sublen.push_back(s.length() - i);
         }
     }
     sort(sublen.begin(), sublen.end());
@@ -26,7 +26,7 @@ int lengthOfLongestSubstring(string s){
 }
 
 int main(){
-    int a = lengthOfLongestSubstring("abcabcbb");
+    int a = lengthOfLongestSubstring(" ");
     cout << a << endl;
     return 0;
 }
