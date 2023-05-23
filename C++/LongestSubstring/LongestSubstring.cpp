@@ -1,3 +1,6 @@
+//SOLVED
+//RUNTIME - 1137 ms, beats 5.1% (omg I am pathetic)
+//MEMORY  - 265.3 MB, beats 5% (WUT how can I be this bad at this shit)
 #include <iostream>
 #include <string.h>
 #include <vector>
