@@ -15,8 +15,13 @@ string FindLongestPalindrome(string s, int index){
     }
 
     for(int i = 0; index - i >= 0 && index + i <= s.length(); i++){
-        if(s.at(index - i) != s.at(index + 1)) break;
-        longest = s.substr(index - i + 1, i * 2 + 1);
+        cout << "Loop starts" << endl;
+        if(s.at(index - i) != s.at(index + i)){
+            cout << "Breaking: " << index << i << s.at(index - i) << s.at(index + 1) << endl;
+            break;
+        }
+        longest = s.substr(index - i, i * 2 + 1);
+        cout << longest << endl;
     }
 
     if(longest.length() > FindLongestPalindrome(s, index + 1).length()){
