@@ -3,28 +3,36 @@
 #include <vector>
 using namespace std;
 
-int main(){
-    string s = "tacocat";
-    cout << FindLongestPalindrome(s, 0) << endl;
-}
-
 string FindLongestPalindrome(string s, int index){
     string longest = "";
 
-    if(index == 0) return s.substr(0, 1);
-    if(index == s.length() - 1) return s.substr(s.length() - 1, 1);
+    cout << "Recursion level" << endl;
+    cout << s.length() << ", " << index << endl;
 
-    for(int i = 1; index - i > 0 && index + i <= s.length(); i++){
+    if(index >= s.length() - 1){
+        cout << "Basecase" << endl;
+        return s.substr(s.length() - 1, 1);
+    }
+
+    for(int i = 0; index - i >= 0 && index + i <= s.length(); i++){
         if(s.at(index - i) != s.at(index + 1)) break;
         longest = s.substr(index - i + 1, i * 2 + 1);
     }
 
-    if(longest.length() > FindLongestPalindrome(s, index++).length()){
+    if(longest.length() > FindLongestPalindrome(s, index + 1).length()){
         return longest;
     }else{
-        FindLongestPalindrome(s, index++);
+        return FindLongestPalindrome(s, index + 1);
     }
 }
+
+int main(){
+    string s = "tacocat";
+    cout << FindLongestPalindrome(s, 0) << endl;
+    return 0;
+}
+
+
 
 // string evenPalindrome(string s){
 
