@@ -1,39 +1,26 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
-string FindLongestPalindrome(string s, int index){
+string longestPalindrome(string s){
     string longest = "";
-
-    cout << "Recursion level" << endl;
-    cout << s.length() << ", " << index << endl;
-
-    if(index >= s.length() - 1){
-        cout << "Basecase" << endl;
-        return s.substr(s.length() - 1, 1);
-    }
-
-    for(int i = 0; index - i >= 0 && index + i <= s.length(); i++){
-        cout << "Loop starts" << endl;
-        if(s.at(index - i) != s.at(index + i)){
-            cout << "Breaking: " << index << i << s.at(index - i) << s.at(index + 1) << endl;
-            break;
+    if(s.length() == 1) return s;
+    for(int i = 0; i < s.length(); i++){
+        for(int j = 1; j <= s.length(); j++){
+            string subs = s.substr(i, j);
+            string rev = subs;
+            reverse(rev.begin(), rev.end());
+            if(subs == rev && subs.length() > longest.length()) longest = subs;
         }
-        longest = s.substr(index - i, i * 2 + 1);
-        cout << longest << endl;
     }
-
-    if(longest.length() > FindLongestPalindrome(s, index + 1).length()){
-        return longest;
-    }else{
-        return FindLongestPalindrome(s, index + 1);
-    }
+    return longest;
 }
 
 int main(){
-    string s = "tacocat";
-    cout << FindLongestPalindrome(s, 0) << endl;
+    string s = "bb";
+    cout << longestPalindrome(s) << endl;
     return 0;
 }
 
