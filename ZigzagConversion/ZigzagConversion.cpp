@@ -3,7 +3,7 @@ using namespace std;
 
 string convert(string s, int numRows){
     string result = "";
-
+    
 }
 
 int main(){
