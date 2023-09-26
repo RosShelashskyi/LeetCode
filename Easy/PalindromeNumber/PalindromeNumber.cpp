@@ -9,17 +9,33 @@
 using namespace std;
 
 bool isPalindrome(int x){
-    //convert int to string using stringstream
-    ostringstream input;
-    input << x;
-    string strX = input.str();
-    string strXReverse = strX;
-    reverse(strXReverse.begin(), strXReverse.end());
-    if(strX == strXReverse) return 1;
-    return 0;
+    if(x < 0) return 0;
+
+    int s = 1;
+    while((x / s) > 10){
+        s *= 10;
+    }
+    s *= 10;
+
+    cout << "s: " << s << endl;
+
+    int m = 10;
+    while(s != m){
+        int digitX = (x / s);
+        cout << "x: " << digitX << endl;
+        int digitY = (x % s) / m;
+        cout << "y: " << digitY << endl;
+        if(digitX != digitY) return 0;
+        s /= 10;
+    }
+
+    return 1;
 }
 
 int main(){
-    cout << isPalindrome(-101) << endl;
+    cout << "Enter a number: " << endl;
+    int x;
+    cin >> x;
+    cout << isPalindrome(x) << endl;
     return 0;
 }
