@@ -11,25 +11,15 @@ using namespace std;
 bool isPalindrome(int x){
     if(x < 0) return 0;
 
-    int s = 1;
-    while((x / s) > 10){
-        s *= 10;
-    }
-    s *= 10;
+    int reverseX = 0;
+    int tempX = x;
 
-    cout << "s: " << s << endl;
-
-    int m = 10;
-    while(s != m){
-        int digitX = (x / s);
-        cout << "x: " << digitX << endl;
-        int digitY = (x % s) / m;
-        cout << "y: " << digitY << endl;
-        if(digitX != digitY) return 0;
-        s /= 10;
+    while(tempX != 0){
+        reverseX = reverseX * 10 + (tempX % 10);
+        tempX /= 10;
     }
 
-    return 1;
+    return (x == reverseX);
 }
 
 int main(){
