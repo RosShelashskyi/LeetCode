@@ -1,3 +1,7 @@
+//ACCEPTED
+//RUNTIME - 3 ms, beats 44.76%
+//MEMORY - 6.62 MB, beats 13.51%
+//Needs optimization
 #include <iostream>
 #include <string>
 #include <vector>
