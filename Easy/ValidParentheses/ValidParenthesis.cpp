@@ -23,21 +23,29 @@ bool isValid(string s){
                 square++;
                 break;
             case ')':
-                if(!stack.empty() && stack.back() != '(') return false;
+                if(stack.empty() || stack.back() != '(') return false;
                 paren--;
                 stack.pop_back();
                 break;
             case '}':
-                if(!stack.empty() && stack.back() != '{') return false;
+                if(stack.empty() || stack.back() != '{') return false;
                 curved--;
                 stack.pop_back();
                 break;
             case ']':
-                if(!stack.empty() && stack.back() != '[') return false;
+                if(stack.empty() || stack.back() != '[') return false;
                 square--;
                 stack.pop_back();
                 break;
         }
     }
     return (paren == 0 && curved == 0 && square == 0);
+}
+
+int main(){
+    cout << "Enter a set of parentheses: " << endl;
+    string s;
+    cin >> s;
+    cout << "isValid: " << isValid(s) << endl;
+    return 0;
 }
